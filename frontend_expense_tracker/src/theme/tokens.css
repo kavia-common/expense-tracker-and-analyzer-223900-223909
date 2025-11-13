@@ -1,0 +1,54 @@
+/* Design Tokens - Ocean Professional (Playful) */
+
+:root {
+  /* Colors */
+  --color-primary: #EC4899; /* Pink */
+  --color-secondary: #8B5CF6; /* Purple */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-bg: #FDF2F8; /* Soft pink background */
+  --color-surface: #FFFFFF;
+  --color-text: #374151;
+
+  /* Gradient (used for playful accents) */
+  --gradient-bg: linear-gradient(135deg, #FCE7F3 0%, #EDE9FE 50%, #DBEAFE 100%);
+
+  /* Spacing scale */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 6px 14px rgba(0,0,0,0.10);
+  --shadow-lg: 0 12px 24px rgba(0,0,0,0.14);
+
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  --line-height: 1.5;
+}
+
+[data-theme="dark"] {
+  --color-bg: #0F172A; /* slate-900-ish */
+  --color-surface: #111827; /* gray-900 */
+  --color-text: #E5E7EB; /* gray-200 */
+  --color-primary: #F472B6; /* lighter pink in dark */
+  --color-secondary: #A78BFA;
+  --gradient-bg: linear-gradient(135deg, #4C1D95 0%, #1F2937 50%, #0F172A 100%);
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.35);
+  --shadow-md: 0 6px 14px rgba(0,0,0,0.45);
+  --shadow-lg: 0 12px 24px rgba(0,0,0,0.55);
+}

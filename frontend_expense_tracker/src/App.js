@@ -1,48 +1,34 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import AppLayout from './layouts/AppLayout';
+import Dashboard from './pages/Dashboard';
+import Expenses from './pages/Expenses';
+import AddExpense from './pages/AddExpense';
+import Categories from './pages/Categories';
+import Reports from './pages/Reports';
+import Settings from './pages/Settings';
+import Healthcheck from './pages/Healthcheck';
+import getConfig from './config/env';
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
+  const cfg = getConfig();
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppLayout>
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/expenses" element={<Expenses />} />
+        <Route path="/add-expense" element={<AddExpense />} />
+        <Route path="/categories" element={<Categories />} />
+        <Route path="/reports" element={<Reports />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path={cfg.healthcheckPath || '/health'} element={<Healthcheck />} />
+        {/* Unknown routes -> Dashboard */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </AppLayout>
   );
 }
 
