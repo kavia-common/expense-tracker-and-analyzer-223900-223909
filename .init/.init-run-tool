@@ -1,0 +1,4 @@
+{
+    "command": "PORT=<port> HOST=<host> BROWSER=none npm start",
+    "working_directory": "/home/kavia/workspace/code-generation/expense-tracker-and-analyzer-223900-223909/frontend_expense_tracker"
+}
